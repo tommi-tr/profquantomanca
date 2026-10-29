@@ -12,11 +12,12 @@ The interface is in Italian.
 - Runs offline too: copy the file to a USB stick and open it in the whiteboard's browser.
 - Settings, notes and the end message are kept in the browser's `localStorage`, so reloading the page does not lose a running timer.
 - Designed to work on older Android browsers built into whiteboards.
+- Five colour palettes (Aurora, Ocean, Sunset, Forest, Black and white) and an on/off switch for the animated gradient background (palette button, bottom right).
 - Languages: Italian, English, French, Spanish, German and the Fano dialect (globe button, bottom right).
 
 ## Download
 
-The download button (bottom right) links to the versioned copy in `dist/`, e.g. `dist/profquantomanca_v1.5.html`, which is identical to `index.html`.
+The download button (bottom right) links to the versioned copy in `dist/`, e.g. `dist/profquantomanca_v1.6.html`, which is identical to `index.html`.
 
 ## Deployment
 
@@ -24,4 +25,4 @@ Hosted on Vercel as a static site (Framework preset: Other, no build command). E
 
 ## Version
 
-1.5
+1.6
