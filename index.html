@@ -60,7 +60,22 @@ svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:ro
 .ib:active,.ib.act{background:rgba(255,255,255,.34)}
 #lp{position:fixed;z-index:10;display:none;padding:.8em;box-sizing:border-box;background:rgba(16,18,28,.97);border:.1em solid rgba(255,255,255,.3);border-radius:1.2em}
 #lp button{display:block;width:100%;text-align:left;font-size:1.8em;padding:.45em 1em;border-radius:.5em;color:#fff;white-space:nowrap}
-#lp button.on{background:rgba(255,255,255,.25)}
+#lp{min-width:24em}
+#lp button{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;font-size:1em;padding:.6em 1em;-webkit-touch-callout:none}
+#lp button.on{background:rgba(255,255,255,.16)}
+#lp .ln{font-size:1.8em;-webkit-box-flex:1;-webkit-flex:1;flex:1}
+#lp .cb{width:2.2em;height:2.2em;border-radius:.5em;border:.14em solid rgba(255,255,255,.7);margin-right:1.2em;box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-flex-shrink:0;flex-shrink:0}
+#lp button.on .cb{background:#fff;border-color:#fff;color:#10131c}
+#lp .cb svg{width:1.6em;height:1.6em;stroke-width:3}
+#lp .nb{font-size:1.4em;color:rgba(255,255,255,.65);margin-left:1em}
+#lp .lph{font-size:1.5em;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:.5em .7em .6em}
+#lp .lpf{font-size:1.4em;color:rgba(255,255,255,.6);padding:.6em .7em .3em}
+#lp .sep{height:.1em;background:rgba(255,255,255,.15);margin:.6em .4em}
+body.hasar .lab,body.hasar #lp .lph,body.hasar #hp h2{letter-spacing:0}
+body.rtl .sb,body.rtl .pill,body.rtl .tm,body.rtl #kT,body.rtl #kE,body.rtl #mp,body.rtl #toast,body.rtl #pp,body.rtl #lp .lph,body.rtl #lp .lpf,body.rtl .hint{direction:rtl}
+body.rtl .sb svg{margin-right:0;margin-left:.8em}
+body.rtl .pill .lab{margin-right:0;margin-left:1.1em}
+body.rtl #pp .sw{margin-right:0;margin-left:1.2em}
 #pp{position:fixed;z-index:10;display:none;padding:.8em;box-sizing:border-box;background:rgba(16,18,28,.97);border:.1em solid rgba(255,255,255,.3);border-radius:1.2em}
 #pp button{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;width:100%;padding:.6em 1em;border-radius:.6em;color:#fff;white-space:nowrap;box-sizing:border-box}
 #pp button.on{background:rgba(255,255,255,.25)}
@@ -128,19 +143,19 @@ svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:ro
     <div class="corner cl"><button class="ib" id="bHelp" data-it="help" title="Istruzioni"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.8M12 17h.01"/></svg></button></div>
     <div class="corner">
       <button class="ib" id="bPal" data-it="palette" title="Colori"><svg viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 1 9-9c0 2.2-1.8 3.5-3.8 3.5H15a2 2 0 0 0-1.4 3.4A1.3 1.3 0 0 1 12 21z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="15" cy="8" r="1"/></svg></button>
-      <a class="ib" id="bDl" href="https://github.com/tommi-tr/profquantomanca/blob/main/dist/profquantomanca_v1.8.html" target="_blank" rel="noopener" data-it="download" title="Scarica"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
+      <a class="ib" id="bDl" href="https://github.com/tommi-tr/profquantomanca/blob/main/dist/profquantomanca_v1.9.html" target="_blank" rel="noopener" data-it="download" title="Scarica"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
       <button class="ib" id="bLang" data-it="lang" title="Lingua"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></button>
     </div>
     <div class="stack" id="stack">
-      <div class="tm"><span class="lab" data-i="start">Inizio</span><span class="num big tap" id="vStart" style="color:#a8cfff">--:--</span><span class="hint" id="hStart" data-i="hint">si blocca premendo play</span></div>
-      <div class="pill"><span class="lab" data-i="now">Ora attuale</span><span class="num" id="vNow">--:--</span></div>
+      <div class="tm"><span class="lab" data-i="start">Inizio</span><span class="num big tap" id="vStart" dir="ltr" style="color:#a8cfff">--:--</span><span class="hint" id="hStart" data-i="hint">si blocca premendo play</span></div>
+      <div class="pill"><span class="lab" data-i="now">Ora attuale</span><span class="num" id="vNow" dir="ltr">--:--</span></div>
       <div class="tm">
         <span class="lab" id="lRem">Tempo rimanente</span>
         <span class="num rem tap" id="vRem">--:--</span>
         <div class="bar"><div id="bar"></div></div>
       </div>
       <div class="pill"><span class="lab" data-i="dur">Durata</span><span class="num tap" id="vDur">--</span></div>
-      <div class="tm"><span class="lab" data-i="end">Fine</span><span class="num big tap" id="vEnd" style="color:#d6c6ff">--:--</span></div>
+      <div class="tm"><span class="lab" data-i="end">Fine</span><span class="num big tap" id="vEnd" dir="ltr" style="color:#d6c6ff">--:--</span></div>
     </div>
   </div>
   <div class="notes" id="notes"><div class="nin">
@@ -156,7 +171,7 @@ svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:ro
       <button class="tb" id="tClr" title="Cancella tutto" data-it="clear"><svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button>
       <button class="tb" id="tCls" title="Chiudi note" data-it="closeNotes"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     </div>
-    <div class="nar" id="nar"><canvas id="cv"></canvas><textarea id="ta" placeholder="Scrivi qui" data-ip="write"></textarea></div>
+    <div class="nar" id="nar"><canvas id="cv"></canvas><textarea id="ta" dir="auto" placeholder="Scrivi qui" data-ip="write"></textarea></div>
   </div></div>
 </div>
 <div id="kov"></div>
@@ -166,7 +181,7 @@ svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:ro
 <div id="pp"></div>
 <div id="mp">
   <div class="mpt" data-i="msgTitle">Messaggio da visualizzare alla fine:</div>
-  <textarea id="mta" maxlength="120" rows="3" placeholder="Consegnare"></textarea>
+  <textarea id="mta" dir="auto" maxlength="120" rows="3" placeholder="Consegnare"></textarea>
   <div class="mph" data-i="msgHelp">Compare al posto del tempo quando il timer arriva a zero. Puoi andare a capo. Massimo 120 caratteri.</div>
   <div class="krow"><button class="k wide" id="mDef"><span data-i="deflt">Predefinito</span></button><button class="k wide" id="mNo"><span data-i="cancel">Annulla</span></button><button class="k ok wide" id="mOk"><span data-i="save">Salva</span></button></div>
 </div>
@@ -183,18 +198,29 @@ svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:ro
 (function(){
 var $=function(i){return document.getElementById(i)};
 var M=60000,H=3600000,em=10,KEY='timerLavagna.v1';
-var LANGS=[['it','Italiano'],['en','English'],['fr','Français'],['es','Español'],['de','Deutsch'],['fano','Fanese']];
+var LANGS=[['it','Italiano'],['en','English'],['fr','Français'],['es','Español'],['de','Deutsch'],['ar','العربية']];
+var DIALS=[['fano','Fanese'],['emil','Emiliano'],['nap','Napoletano'],['rom','Romanesco'],['ven','Veneto']];
+var RTL={ar:1};
 var I={
-it:{help:'Istruzioni',palette:'Colori',pAurora:'Aurora',pOcean:'Oceano',pSunset:'Tramonto',pForest:'Bosco',pBw:'Bianco e nero',grad:'Sfondo sfumato',play:'Play',pause:'Pausa',reset:'Reset',notes:'Note',full:'Schermo intero',exit:'Esci',endBtn:'Fine',start:'Inizio',now:'Ora attuale',rem:'Tempo rimanente',dur:'Durata',end:'Fine',hint:'si blocca premendo play',paused:'In pausa',startsAt:'Inizia alle ',timeUp:'Tempo scaduto',defMsg:'Consegnare',kStart:'Inizio',kEnd:'Fine',kDur:'Durata (minuti)',kRem:'Rimanente (minuti)',cancel:'Annulla',save:'Salva',deflt:'Predefinito',msgTitle:'Messaggio da visualizzare alla fine:',msgHelp:'Compare al posto del tempo quando il timer arriva a zero. Puoi andare a capo. Massimo 120 caratteri.',write:'Scrivi qui',errFmt:'Es. 1100 = 11:00',errBad:'Orario non valido',errMin:'Almeno 1 minuto',errAfter:"Dev'essere dopo l'inizio",errBefore:"Dev'essere prima della fine",fsMsg:'Schermo intero non disponibile qui: usa il menu del browser o il tasto F11',pen:'Penna',kbd:'Tastiera',eraser:'Gomma',white:'Bianco',yellow:'Giallo',blue:'Azzurro',clear:'Cancella tutto',closeNotes:'Chiudi note',download:'Scarica il file',lang:'Lingua'},
-en:{help:'Instructions',palette:'Colours',pAurora:'Aurora',pOcean:'Ocean',pSunset:'Sunset',pForest:'Forest',pBw:'Black and white',grad:'Gradient background',play:'Play',pause:'Pause',reset:'Reset',notes:'Notes',full:'Full screen',exit:'Exit',endBtn:'End',start:'Start',now:'Current time',rem:'Time remaining',dur:'Duration',end:'End',hint:'locks when you press play',paused:'Paused',startsAt:'Starts at ',timeUp:"Time's up",defMsg:'Hand in your work',kStart:'Start',kEnd:'End',kDur:'Duration (minutes)',kRem:'Remaining (minutes)',cancel:'Cancel',save:'Save',deflt:'Default',msgTitle:'Message to show at the end:',msgHelp:'Shown instead of the time when the timer reaches zero. You can add line breaks. Up to 120 characters.',write:'Write here',errFmt:'E.g. 1100 = 11:00',errBad:'Invalid time',errMin:'At least 1 minute',errAfter:'Must be after the start',errBefore:'Must be before the end',fsMsg:"Full screen isn't available here: use the browser menu or F11",pen:'Pen',kbd:'Keyboard',eraser:'Eraser',white:'White',yellow:'Yellow',blue:'Light blue',clear:'Clear all',closeNotes:'Close notes',download:'Download the file',lang:'Language'},
-fr:{help:'Mode d’emploi',palette:'Couleurs',pAurora:'Aurore',pOcean:'Océan',pSunset:'Coucher de soleil',pForest:'Forêt',pBw:'Noir et blanc',grad:'Fond dégradé',play:'Démarrer',pause:'Pause',reset:'Réinitialiser',notes:'Notes',full:'Plein écran',exit:'Quitter',endBtn:'Fin',start:'Début',now:'Heure actuelle',rem:'Temps restant',dur:'Durée',end:'Fin',hint:'se fige quand on appuie sur démarrer',paused:'En pause',startsAt:'Commence à ',timeUp:'Temps écoulé',defMsg:'Rendez vos copies',kStart:'Début',kEnd:'Fin',kDur:'Durée (minutes)',kRem:'Restant (minutes)',cancel:'Annuler',save:'Enregistrer',deflt:'Par défaut',msgTitle:'Message à afficher à la fin :',msgHelp:"S'affiche à la place du temps quand le minuteur arrive à zéro. Vous pouvez aller à la ligne. 120 caractères maximum.",write:'Écrivez ici',errFmt:'Ex. 1100 = 11:00',errBad:'Heure non valide',errMin:'Au moins 1 minute',errAfter:'Doit être après le début',errBefore:'Doit être avant la fin',fsMsg:"Plein écran indisponible ici : utilisez le menu du navigateur ou F11",pen:'Stylo',kbd:'Clavier',eraser:'Gomme',white:'Blanc',yellow:'Jaune',blue:'Bleu clair',clear:'Tout effacer',closeNotes:'Fermer les notes',download:'Télécharger le fichier',lang:'Langue'},
-es:{help:'Instrucciones',palette:'Colores',pAurora:'Aurora',pOcean:'Océano',pSunset:'Atardecer',pForest:'Bosque',pBw:'Blanco y negro',grad:'Fondo degradado',play:'Iniciar',pause:'Pausa',reset:'Reiniciar',notes:'Notas',full:'Pantalla completa',exit:'Salir',endBtn:'Fin',start:'Inicio',now:'Hora actual',rem:'Tiempo restante',dur:'Duración',end:'Fin',hint:'se fija al pulsar iniciar',paused:'En pausa',startsAt:'Empieza a las ',timeUp:'Tiempo agotado',defMsg:'Entregad el trabajo',kStart:'Inicio',kEnd:'Fin',kDur:'Duración (minutos)',kRem:'Restante (minutos)',cancel:'Cancelar',save:'Guardar',deflt:'Predeterminado',msgTitle:'Mensaje que se mostrará al final:',msgHelp:'Aparece en lugar del tiempo cuando el temporizador llega a cero. Puedes saltar de línea. Máximo 120 caracteres.',write:'Escribe aquí',errFmt:'Ej. 1100 = 11:00',errBad:'Hora no válida',errMin:'Al menos 1 minuto',errAfter:'Debe ser después del inicio',errBefore:'Debe ser antes del fin',fsMsg:'Pantalla completa no disponible aquí: usa el menú del navegador o F11',pen:'Lápiz',kbd:'Teclado',eraser:'Goma',white:'Blanco',yellow:'Amarillo',blue:'Celeste',clear:'Borrar todo',closeNotes:'Cerrar notas',download:'Descargar el archivo',lang:'Idioma'},
-de:{help:'Anleitung',palette:'Farben',pAurora:'Polarlicht',pOcean:'Ozean',pSunset:'Sonnenuntergang',pForest:'Wald',pBw:'Schwarz-Weiß',grad:'Farbverlauf im Hintergrund',play:'Start',pause:'Pause',reset:'Zurücksetzen',notes:'Notizen',full:'Vollbild',exit:'Beenden',endBtn:'Ende',start:'Beginn',now:'Aktuelle Uhrzeit',rem:'Verbleibende Zeit',dur:'Dauer',end:'Ende',hint:'wird mit Start festgelegt',paused:'Pausiert',startsAt:'Beginnt um ',timeUp:'Zeit abgelaufen',defMsg:'Bitte abgeben',kStart:'Beginn',kEnd:'Ende',kDur:'Dauer (Minuten)',kRem:'Verbleibend (Minuten)',cancel:'Abbrechen',save:'Speichern',deflt:'Standard',msgTitle:'Nachricht, die am Ende angezeigt wird:',msgHelp:'Erscheint statt der Zeit, wenn der Timer null erreicht. Zeilenumbrüche sind möglich. Höchstens 120 Zeichen.',write:'Hier schreiben',errFmt:'Z. B. 1100 = 11:00',errBad:'Ungültige Uhrzeit',errMin:'Mindestens 1 Minute',errAfter:'Muss nach dem Beginn liegen',errBefore:'Muss vor dem Ende liegen',fsMsg:'Vollbild hier nicht verfügbar: Browsermenü oder F11 verwenden',pen:'Stift',kbd:'Tastatur',eraser:'Radierer',white:'Weiß',yellow:'Gelb',blue:'Hellblau',clear:'Alles löschen',closeNotes:'Notizen schließen',download:'Datei herunterladen',lang:'Sprache'},
+it:{lang2:'Puoi sceglierne fino a due',help:'Istruzioni',palette:'Colori',pAurora:'Aurora',pOcean:'Oceano',pSunset:'Tramonto',pForest:'Bosco',pBw:'Bianco e nero',grad:'Sfondo sfumato',play:'Play',pause:'Pausa',reset:'Reset',notes:'Note',full:'Schermo intero',exit:'Esci',endBtn:'Fine',start:'Inizio',now:'Ora attuale',rem:'Tempo rimanente',dur:'Durata',end:'Fine',hint:'si blocca premendo play',paused:'In pausa',startsAt:'Inizia alle ',timeUp:'Tempo scaduto',defMsg:'Consegnare',kStart:'Inizio',kEnd:'Fine',kDur:'Durata (minuti)',kRem:'Rimanente (minuti)',cancel:'Annulla',save:'Salva',deflt:'Predefinito',msgTitle:'Messaggio da visualizzare alla fine:',msgHelp:'Compare al posto del tempo quando il timer arriva a zero. Puoi andare a capo. Massimo 120 caratteri.',write:'Scrivi qui',errFmt:'Es. 1100 = 11:00',errBad:'Orario non valido',errMin:'Almeno 1 minuto',errAfter:"Dev'essere dopo l'inizio",errBefore:"Dev'essere prima della fine",fsMsg:'Schermo intero non disponibile qui: usa il menu del browser o il tasto F11',pen:'Penna',kbd:'Tastiera',eraser:'Gomma',white:'Bianco',yellow:'Giallo',blue:'Azzurro',clear:'Cancella tutto',closeNotes:'Chiudi note',download:'Scarica il file',lang:'Lingua'},
+en:{lang2:'You can pick up to two',help:'Instructions',palette:'Colours',pAurora:'Aurora',pOcean:'Ocean',pSunset:'Sunset',pForest:'Forest',pBw:'Black and white',grad:'Gradient background',play:'Play',pause:'Pause',reset:'Reset',notes:'Notes',full:'Full screen',exit:'Exit',endBtn:'End',start:'Start',now:'Current time',rem:'Time remaining',dur:'Duration',end:'End',hint:'locks when you press play',paused:'Paused',startsAt:'Starts at ',timeUp:"Time's up",defMsg:'Hand in your work',kStart:'Start',kEnd:'End',kDur:'Duration (minutes)',kRem:'Remaining (minutes)',cancel:'Cancel',save:'Save',deflt:'Default',msgTitle:'Message to show at the end:',msgHelp:'Shown instead of the time when the timer reaches zero. You can add line breaks. Up to 120 characters.',write:'Write here',errFmt:'E.g. 1100 = 11:00',errBad:'Invalid time',errMin:'At least 1 minute',errAfter:'Must be after the start',errBefore:'Must be before the end',fsMsg:"Full screen isn't available here: use the browser menu or F11",pen:'Pen',kbd:'Keyboard',eraser:'Eraser',white:'White',yellow:'Yellow',blue:'Light blue',clear:'Clear all',closeNotes:'Close notes',download:'Download the file',lang:'Language'},
+fr:{lang2:'Vous pouvez en choisir deux',help:'Mode d’emploi',palette:'Couleurs',pAurora:'Aurore',pOcean:'Océan',pSunset:'Coucher de soleil',pForest:'Forêt',pBw:'Noir et blanc',grad:'Fond dégradé',play:'Démarrer',pause:'Pause',reset:'Réinitialiser',notes:'Notes',full:'Plein écran',exit:'Quitter',endBtn:'Fin',start:'Début',now:'Heure actuelle',rem:'Temps restant',dur:'Durée',end:'Fin',hint:'se fige quand on appuie sur démarrer',paused:'En pause',startsAt:'Commence à ',timeUp:'Temps écoulé',defMsg:'Rendez vos copies',kStart:'Début',kEnd:'Fin',kDur:'Durée (minutes)',kRem:'Restant (minutes)',cancel:'Annuler',save:'Enregistrer',deflt:'Par défaut',msgTitle:'Message à afficher à la fin :',msgHelp:"S'affiche à la place du temps quand le minuteur arrive à zéro. Vous pouvez aller à la ligne. 120 caractères maximum.",write:'Écrivez ici',errFmt:'Ex. 1100 = 11:00',errBad:'Heure non valide',errMin:'Au moins 1 minute',errAfter:'Doit être après le début',errBefore:'Doit être avant la fin',fsMsg:"Plein écran indisponible ici : utilisez le menu du navigateur ou F11",pen:'Stylo',kbd:'Clavier',eraser:'Gomme',white:'Blanc',yellow:'Jaune',blue:'Bleu clair',clear:'Tout effacer',closeNotes:'Fermer les notes',download:'Télécharger le fichier',lang:'Langue'},
+es:{lang2:'Puedes elegir hasta dos',help:'Instrucciones',palette:'Colores',pAurora:'Aurora',pOcean:'Océano',pSunset:'Atardecer',pForest:'Bosque',pBw:'Blanco y negro',grad:'Fondo degradado',play:'Iniciar',pause:'Pausa',reset:'Reiniciar',notes:'Notas',full:'Pantalla completa',exit:'Salir',endBtn:'Fin',start:'Inicio',now:'Hora actual',rem:'Tiempo restante',dur:'Duración',end:'Fin',hint:'se fija al pulsar iniciar',paused:'En pausa',startsAt:'Empieza a las ',timeUp:'Tiempo agotado',defMsg:'Entregad el trabajo',kStart:'Inicio',kEnd:'Fin',kDur:'Duración (minutos)',kRem:'Restante (minutos)',cancel:'Cancelar',save:'Guardar',deflt:'Predeterminado',msgTitle:'Mensaje que se mostrará al final:',msgHelp:'Aparece en lugar del tiempo cuando el temporizador llega a cero. Puedes saltar de línea. Máximo 120 caracteres.',write:'Escribe aquí',errFmt:'Ej. 1100 = 11:00',errBad:'Hora no válida',errMin:'Al menos 1 minuto',errAfter:'Debe ser después del inicio',errBefore:'Debe ser antes del fin',fsMsg:'Pantalla completa no disponible aquí: usa el menú del navegador o F11',pen:'Lápiz',kbd:'Teclado',eraser:'Goma',white:'Blanco',yellow:'Amarillo',blue:'Celeste',clear:'Borrar todo',closeNotes:'Cerrar notas',download:'Descargar el archivo',lang:'Idioma'},
+de:{lang2:'Bis zu zwei auswählbar',help:'Anleitung',palette:'Farben',pAurora:'Polarlicht',pOcean:'Ozean',pSunset:'Sonnenuntergang',pForest:'Wald',pBw:'Schwarz-Weiß',grad:'Farbverlauf im Hintergrund',play:'Start',pause:'Pause',reset:'Zurücksetzen',notes:'Notizen',full:'Vollbild',exit:'Beenden',endBtn:'Ende',start:'Beginn',now:'Aktuelle Uhrzeit',rem:'Verbleibende Zeit',dur:'Dauer',end:'Ende',hint:'wird mit Start festgelegt',paused:'Pausiert',startsAt:'Beginnt um ',timeUp:'Zeit abgelaufen',defMsg:'Bitte abgeben',kStart:'Beginn',kEnd:'Ende',kDur:'Dauer (Minuten)',kRem:'Verbleibend (Minuten)',cancel:'Abbrechen',save:'Speichern',deflt:'Standard',msgTitle:'Nachricht, die am Ende angezeigt wird:',msgHelp:'Erscheint statt der Zeit, wenn der Timer null erreicht. Zeilenumbrüche sind möglich. Höchstens 120 Zeichen.',write:'Hier schreiben',errFmt:'Z. B. 1100 = 11:00',errBad:'Ungültige Uhrzeit',errMin:'Mindestens 1 Minute',errAfter:'Muss nach dem Beginn liegen',errBefore:'Muss vor dem Ende liegen',fsMsg:'Vollbild hier nicht verfügbar: Browsermenü oder F11 verwenden',pen:'Stift',kbd:'Tastatur',eraser:'Radierer',white:'Weiß',yellow:'Gelb',blue:'Hellblau',clear:'Alles löschen',closeNotes:'Notizen schließen',download:'Datei herunterladen',lang:'Sprache'},
+ar:{lang2:'يمكنك اختيار لغتين كحد أقصى',help:'التعليمات',palette:'الألوان',pAurora:'شفق',pOcean:'محيط',pSunset:'غروب',pForest:'غابة',pBw:'أبيض وأسود',grad:'خلفية متدرجة',play:'تشغيل',pause:'إيقاف مؤقت',reset:'إعادة ضبط',notes:'ملاحظات',full:'ملء الشاشة',exit:'خروج',endBtn:'النهاية',start:'البداية',now:'الوقت الحالي',rem:'الوقت المتبقي',dur:'المدة',end:'النهاية',hint:'يُثبَّت عند الضغط على تشغيل',paused:'متوقف مؤقتًا',startsAt:'يبدأ الساعة ',timeUp:'انتهى الوقت',defMsg:'سلّموا أوراقكم',kStart:'البداية',kEnd:'النهاية',kDur:'المدة (بالدقائق)',kRem:'المتبقي (بالدقائق)',cancel:'إلغاء',save:'حفظ',deflt:'الافتراضي',msgTitle:'الرسالة التي تظهر عند النهاية:',msgHelp:'تظهر بدلًا من الوقت عندما يصل المؤقت إلى الصفر. يمكنك الانتقال إلى سطر جديد. الحد الأقصى 120 حرفًا.',write:'اكتب هنا',errFmt:'مثال: \u20661100 = 11:00\u2069',errBad:'وقت غير صالح',errMin:'دقيقة واحدة على الأقل',errAfter:'يجب أن يكون بعد البداية',errBefore:'يجب أن يكون قبل النهاية',fsMsg:'ملء الشاشة غير متاح هنا: استخدم قائمة المتصفح أو مفتاح F11',pen:'قلم',kbd:'لوحة المفاتيح',eraser:'ممحاة',white:'أبيض',yellow:'أصفر',blue:'أزرق فاتح',clear:'مسح الكل',closeNotes:'إغلاق الملاحظات',download:'تنزيل الملف',lang:'اللغة',minU:'دقيقة',hU:'س'},
+emil:{play:'Pèrt',pause:'Aspèta',reset:'Tâca da cô',notes:'Apónt',full:'Scèrum grand',exit:'Vén fòra',endBtn:'Fén',start:'Prinzéppi',now:"Che ôra èla?",rem:'Quant al manca',dur:'Quant al dûra',end:'Fén',hint:'s’t schéc "pèrt" al s’ farma',paused:'Farmè',startsAt:'Al taca al ',timeUp:'L’é finî al tèimp',defMsg:'Cunsgnè',cancel:'Lasa stèr',save:'Salva'},
+nap:{play:'Parte',pause:'Aspè',reset:'Accummencia n’ata vota',notes:'Appunte',full:'Schermo gruosso',exit:'Jesce',endBtn:'Fine',start:'Accummenciamiento',now:'Che ora è?',rem:'Quanto ce manca',dur:'Quanto dura',end:'Fine',hint:'si sprimme "parte" se ferma',paused:'Fermo',startsAt:'Accummencia ’e ',timeUp:'È fernuto ’o tiempo',defMsg:'Cunsignate',cancel:'Lassa stà',save:'Sarva'},
+rom:{play:'Parti',pause:'Aspetta',reset:'Ricomincia',notes:'Appunti',full:'Schermo grosso',exit:'Esci',endBtn:'Fine',start:'Se comincia',now:'Che ore so’?',rem:'Quanto manca',dur:'Quanto dura',end:'Fine',hint:'si premi "parti" se ferma',paused:'Fermo',startsAt:'Se comincia alle ',timeUp:'È finito er tempo',defMsg:'Consegnate',cancel:'Lassa perde',save:'Sarva'},
+ven:{play:'Parti',pause:'Speta',reset:'Tàca da novo',notes:'Apunti',full:'Schermo grando',exit:'Va fora',endBtn:'Fin',start:'Inìsio',now:'Che ora xe?',rem:'Quanto che manca',dur:'Quanto che dura',end:'Fin',hint:'se te struchi "parti" el se ferma',paused:'Fermo',startsAt:'Taca ae ',timeUp:'Xe finìo el tempo',defMsg:'Consegné',cancel:'Lassa star',save:'Salva'},
 fano:{play:'Parti',pause:"'Speta",reset:'Arparti',notes:'Apunt',full:'Scherm gros',exit:'Scherm ninin',endBtn:'Fin',start:'Inisi',now:'Che or è?',rem:'Quant manca',dur:'Quant dura',end:'Fin',hint:'se calsi "parti" sta bon',paused:'Blochet',startsAt:'Inisia alle ',timeUp:'È scadut el temp',defMsg:'Consegna',cancel:'Annulla',save:'Salva',deflt:'Predefinit',write:'Scrivi makì'}
 };
-var lang='it',VER='1.8';
-function tr(k){var d=I[lang];return(d&&d[k]!=null)?d[k]:I.it[k]}
-function defMsg(){return tr('defMsg')}
+var langs=['it'],lang='it',dialOn=false,VER='1.9';
+function isDial(c){for(var i=0;i<DIALS.length;i++)if(DIALS[i][0]==c)return true;return false}
+function trL(lg,k){var d=I[lg];return(d&&d[k]!=null)?d[k]:(I.it[k]!=null?I.it[k]:'')}
+function J(f,sep){var o=[],i,v;for(i=0;i<langs.length;i++){v=f(langs[i]);if(o.indexOf(v)<0)o.push(v)}
+  if(o.length==1)return o[0];return '\u2068'+o.join('\u2069'+(sep||' – ')+'\u2068')+'\u2069'}
+function tr(k){return J(function(lg){return trL(lg,k)})}
+function defMsg(){var o=[],i,v;for(i=0;i<langs.length;i++){v=trL(langs[i],'defMsg');if(o.indexOf(v)<0)o.push(v)}return o.join('\n')}
 function store(k,v){try{if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){}}
 function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function scale(){var ae=document.activeElement;if(ae&&ae.tagName=='TEXTAREA'&&em>3)return;em=Math.min(window.innerHeight/100,window.innerWidth/177.8);if(em<3)em=3;document.body.style.fontSize=em+'px'}
@@ -204,7 +230,8 @@ function now(){return Date.now()}
 var S={st:false,pa:false,sFix:false,start:0,end:0,dur:50*M,dur0:50*M,anc:'dur',rem:0};
 var saved=null;try{saved=JSON.parse(load(KEY)||'null')}catch(e){}
 var msg=(saved&&typeof saved.msg=='string')?saved.msg:'';
-if(saved&&saved.lang&&I[saved.lang])lang=saved.lang;
+if(saved){var sl=saved.langs||(saved.lang?[saved.lang]:null);if(sl&&sl.length){langs=[];for(var q=0;q<sl.length&&langs.length<2;q++)if(I[sl[q]])langs.push(sl[q]);if(!langs.length)langs=['it']}dialOn=!!saved.dialOn}
+lang=langs[0];
 var pal=(saved&&typeof saved.pal=='number')?saved.pal:0,grad=!(saved&&saved.grad===false);
 if(saved&&saved.S){for(var k in S)if(saved.S.hasOwnProperty(k))S[k]=saved.S[k];
   if(S.st&&now()-S.end>12*H)reset(true)}
@@ -222,7 +249,7 @@ function warnAt(d){var x=d*0.2,F=5*M;
 function pad(n){return(n<10?'0':'')+n}
 function hm(ms){var d=new Date(ms);return d.getHours()+':'+pad(d.getMinutes())}
 function fr(ms){var s=Math.ceil(ms/1000);if(s<0)s=0;var h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return h?h+':'+pad(m)+':'+pad(x):pad(m)+':'+pad(x)}
-function fd(ms){var m=Math.round(ms/M),h=Math.floor(m/60);return m>60?h+' h '+pad(m%60)+' min':m+' min'}
+function fd(ms){var m=Math.round(ms/M),h=Math.floor(m/60),u=trL(lang,'minU')||'min',hu=trL(lang,'hU')||'h';return m>60?h+' '+hu+' '+pad(m%60)+' '+u:m+' '+u}
 function txt(id,v){var e=$(id);if(e.textContent!==v)e.textContent=v}
 
 var bg=$('bg');
@@ -247,19 +274,20 @@ function render(){var t=now(),r=calc(t);
   $('hStart').style.visibility=(!S.st&&!S.sFix)?'visible':'hidden';
   var v=$('vRem'),b=$('bar');
   if(r.fin){var mg=msg||defMsg(),L=mg.length+20*(mg.split('\n').length-1),fs=L<=12?9:L<=24?6.5:L<=48?5:4;
-    txt('vRem',mg);v.style.fontSize=fs+'em';v.style.whiteSpace='pre-wrap';v.style.lineHeight='1.15';v.style.maxWidth=Math.round($('stack').clientWidth*0.96)+'px';
+    txt('vRem',mg);v.style.fontSize=fs+'em';v.style.whiteSpace='pre-wrap';v.style.unicodeBidi='plaintext';v.style.lineHeight='1.15';v.style.maxWidth=Math.round($('stack').clientWidth*0.96)+'px';
     v.style.color='#fff';b.style.backgroundColor='#fff';txt('lRem',tr('timeUp'));b.style.width='0%'}
-  else{var s=fr(r.rem);txt('vRem',s);v.style.fontSize=(s.length>5?'11em':'14em');v.style.whiteSpace='nowrap';v.style.lineHeight='';v.style.maxWidth='';
+  else{var s=fr(r.rem);txt('vRem',s);v.style.fontSize=(s.length>5?'11em':'14em');v.style.whiteSpace='nowrap';v.style.unicodeBidi='';v.style.lineHeight='';v.style.maxWidth='';
     var w=S.st&&!r.wait&&r.rem<=warnAt(r.dur),c=w?curP().w:'#fff';v.style.color=c;b.style.backgroundColor=c;
-    txt('lRem',S.pa?tr('paused'):(r.wait?tr('startsAt')+hm(r.start):tr('rem')));
+    txt('lRem',S.pa?tr('paused'):(r.wait?J(function(lg){return trL(lg,'startsAt')+hm(r.start)}):tr('rem')));
     var p=S.st&&!r.wait&&r.dur>0?Math.max(0,Math.min(1,r.rem/r.dur)):1;b.style.width=(Math.round(p*1000)/10)+'%'}
   v.style.opacity=S.pa?'.55':'1';
   cls('bPlay','sb'+(S.st&&!S.pa&&!r.fin?' act':''));
   cls('bPause','sb'+(S.pa?' act':''));
   cls('bNotes','sb'+(nO?' act':''));}
-function saveS(){store(KEY,JSON.stringify({S:S,n:nO,col:col,msg:msg,lang:lang,pal:pal,grad:grad}));}
+function saveS(){store(KEY,JSON.stringify({S:S,n:nO,col:col,msg:msg,langs:langs,dialOn:dialOn,pal:pal,grad:grad}));}
 
-function reset(silent){S.st=false;S.pa=false;S.sFix=false;S.anc='dur';S.dur=S.dur0;if(!silent){saveS();render()}}
+function hideDials(){if(!dialOn)return false;dialOn=false;var n=[];for(var i=0;i<langs.length;i++)if(!isDial(langs[i]))n.push(langs[i]);if(!n.length)n=['it'];langs=n;lang=langs[0];return true}
+function reset(silent){if(hideDials()&&!silent&&window.applyLangRef)window.applyLangRef();S.st=false;S.pa=false;S.sFix=false;S.anc='dur';S.dur=S.dur0;if(!silent){saveS();render()}}
 $('bPlay').onclick=function(){var t=now(),r=calc(t);if(r.fin)return;
   if(!S.st){var st=S.sFix?S.start:t;if(S.anc=='end'){if(S.end<=st)return}else S.end=st+S.dur;S.start=st;S.st=true;S.pa=false;wake()}
   else if(S.pa){S.end=t+Math.max(0,S.rem);S.pa=false}
@@ -382,17 +410,37 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden&&S.s
 
 /* allinea larghezza pulsanti laterali */
 function sideW(){var ids=['sideL','sideR'];for(var i=0;i<ids.length;i++){var s=$(ids[i]);s.style.width='';}
-  var w=Math.max($('sideL').offsetWidth,$('sideR').offsetWidth);$('sideL').style.width=w+'px';$('sideR').style.width=w+'px'}
+  var w=Math.max($('sideL').offsetWidth,$('sideR').offsetWidth);$('sideL').style.width=w+'px';$('sideR').style.width=w+'px';var o=Math.max(23*em,3*em+w+2.5*em);$('stack').style.left=o+'px';$('stack').style.right=o+'px'}
 
 function applyLang(){var i,e,a=document.querySelectorAll('[data-i]');for(i=0;i<a.length;i++){e=a[i];e.textContent=tr(e.getAttribute('data-i'))}
   a=document.querySelectorAll('[data-it]');for(i=0;i<a.length;i++){e=a[i];e.title=tr(e.getAttribute('data-it'));e.setAttribute('aria-label',e.title)}
   a=document.querySelectorAll('[data-ip]');for(i=0;i<a.length;i++){e=a[i];e.placeholder=tr(e.getAttribute('data-ip'))}
-  mta.placeholder=defMsg();document.documentElement.lang=lang=='fano'?'it':lang;fsLab();render()}
+  mta.placeholder=defMsg();document.documentElement.lang=(isDial(lang)?'it':lang);
+  var c=document.body.className.replace(/\s*(rtl|hasar)/g,'');if(RTL[lang])c+=' rtl';for(i=0;i<langs.length;i++)if(RTL[langs[i]])c+=' hasar';document.body.className=c;
+  fsLab();render()}
+window.applyLangRef=applyLang;
 lp=$('lp');
-(function(){for(var i=0;i<LANGS.length;i++)(function(c){var b=document.createElement('button');b.textContent=c[1];b.setAttribute('data-l',c[0]);
-  b.onclick=function(){lang=c[0];saveS();lclose();applyLang()};lp.appendChild(b)})(LANGS[i])})();
-function lopen(){kclose();mclose();if(pp.style.display=='block')pclose();var bs=lp.getElementsByTagName('button');for(var i=0;i<bs.length;i++)bs[i].className=bs[i].getAttribute('data-l')==lang?'on':'';
-  lp.style.display='block';kov.style.display='block';var br=$('bLang').getBoundingClientRect();
+var lpT=null,lpFired=false;
+function toggleLang(c){var i=langs.indexOf(c);
+  if(i>=0){if(langs.length>1)langs.splice(i,1)}else{langs.push(c);if(langs.length>2)langs.shift()}
+  lang=langs[0];saveS();applyLang();lbuild()}
+function lbuild(){lp.innerHTML='<div class="lph">'+tr('lang')+'</div>';var list=LANGS.slice(),i;
+  if(dialOn)list=list.concat([['-','']]).concat(DIALS);
+  for(i=0;i<list.length;i++)(function(c){if(c[0]=='-'){var d=document.createElement('div');d.className='sep';lp.appendChild(d);return}
+    var b=document.createElement('button'),k=langs.indexOf(c[0]);b.className=k>=0?'on':'';
+    b.innerHTML='<span class="cb">'+(k>=0?'<svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>':'')+'</span><span class="ln"></span>'+(k>=0&&langs.length>1?'<span class="nb">'+(k+1)+'</span>':'');
+    b.getElementsByTagName('span')[1].textContent=c[1];if(RTL[c[0]])b.getElementsByTagName('span')[1].dir='rtl';
+    b.onclick=function(){if(lpFired){lpFired=false;return}toggleLang(c[0])};
+    if(c[0]=='it'){var st=function(){lpFired=false;clearTimeout(lpT);lpT=setTimeout(function(){lpFired=true;if(!dialOn){dialOn=true;saveS();lbuild()}},5000)},
+      en=function(){clearTimeout(lpT)};
+      if(window.PointerEvent){b.addEventListener('pointerdown',st);b.addEventListener('pointerup',en);b.addEventListener('pointerleave',en);b.addEventListener('pointercancel',en)}
+      else{b.addEventListener('touchstart',st);b.addEventListener('touchend',en);b.addEventListener('mousedown',st);b.addEventListener('mouseup',en);b.addEventListener('mouseleave',en)}
+      b.oncontextmenu=function(e){e.preventDefault();return false}}
+    lp.appendChild(b)})(list[i]);
+  var h=document.createElement('div');h.className='lpf';h.textContent=tr('lang2');lp.appendChild(h);lpos()}
+function lpos(){var br=$('bLang').getBoundingClientRect();lp.style.left=Math.max(0,Math.round(br.right-lp.offsetWidth))+'px';lp.style.top=Math.max(0,Math.round(br.top-lp.offsetHeight-em))+'px'}
+function lopen(){kclose();mclose();if(pp.style.display=='block')pclose();
+  lp.style.display='block';lbuild();kov.style.display='block';var br=$('bLang').getBoundingClientRect();
   lp.style.left=Math.max(0,Math.round(br.right-lp.offsetWidth))+'px';lp.style.top=Math.max(0,Math.round(br.top-lp.offsetHeight-em))+'px';$('bLang').className='ib act'}
 function lclose(){lp.style.display='none';kov.style.display='none';$('bLang').className='ib'}
 $('bLang').onclick=function(){if(lp.style.display=='block')lclose();else lopen()};
@@ -423,7 +471,7 @@ function hopen(){kclose();mclose();lclose();pclose();
   hit(ico('bReset'),'<strong>Reset</strong> riporta il timer all’inizio, mantenendo la durata scelta.')+
   '</div><div class="col"><h2>Durante e alla fine</h2>'+
   hit('<span class="ic"><svg viewBox="0 0 24 24" style="color:'+curP().w+'"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M10 3h4"/></svg></span>','Quando il tempo <strong>sta per scadere</strong>, tempo e barra diventano gialli. A tempo scaduto, al posto del tempo compare il messaggio di fine.')+
-  hit(ico('bMsg'),'<strong>Fine</strong> imposta il messaggio da mostrare alla fine, anche su due righe. Quello predefinito è “'+defMsg()+'”.')+
+  hit(ico('bMsg'),'<strong>Fine</strong> imposta il messaggio da mostrare alla fine, anche su due righe. Quello predefinito è “'+defMsg().replace(/\n/g,' / ')+'”.')+
   hit(ico('bNotes'),'<strong>Note</strong> apre un pannello a destra su cui scrivere <strong>a mano</strong>, con il dito o la penna della lavagna, oppure con la <strong>tastiera</strong>. Ci sono tre colori, la gomma e “cancella tutto”.')+
   hit(ico('bFull'),'<strong>Schermo intero</strong> nasconde le barre del browser.')+
   '</div></div>'+
