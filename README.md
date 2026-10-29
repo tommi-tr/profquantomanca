@@ -1,7 +1,22 @@
 # profquantomanca
 
-Timer per la lavagna interattiva: ora di inizio, ora attuale, tempo rimanente, durata e ora di fine, con note scrivibili a mano e messaggio di fine personalizzabile.
+A classroom timer for interactive whiteboards ("quanto manca?" is Italian for "how much time is left?").
 
-Pagina statica in un unico file (`index.html`), senza dipendenze esterne. Funziona anche offline da chiavetta USB.
+The screen shows, from top to bottom: start time, current time, time remaining (with a progress bar), total duration and end time. Changing any value updates the others. It also has a notes panel you can write on by hand (finger or stylus) or with the keyboard, and a custom message shown when time is up (default: "Consegnare").
 
-Versione: 1.2
+The interface is in Italian.
+
+## How it works
+
+- A single static file, `index.html`: no build step, no dependencies, no network requests.
+- Runs offline too: copy the file to a USB stick and open it in the whiteboard's browser.
+- Settings, notes and the end message are kept in the browser's `localStorage`, so reloading the page does not lose a running timer.
+- Designed to work on older Android browsers built into whiteboards.
+
+## Deployment
+
+Hosted on Vercel as a static site (Framework preset: Other, no build command). Every push to `main` deploys automatically.
+
+## Version
+
+1.2
