@@ -12,6 +12,11 @@ The interface is in Italian.
 - Runs offline too: copy the file to a USB stick and open it in the whiteboard's browser.
 - Settings, notes and the end message are kept in the browser's `localStorage`, so reloading the page does not lose a running timer.
 - Designed to work on older Android browsers built into whiteboards.
+- Languages: Italian, English, French, Spanish, German and the Fano dialect (globe button, bottom right).
+
+## Download
+
+The download button (bottom right) links to the versioned copy in `dist/`, e.g. `dist/profquantomanca_v1.3.html`, which is identical to `index.html`.
 
 ## Deployment
 
@@ -19,4 +24,4 @@ Hosted on Vercel as a static site (Framework preset: Other, no build command). E
 
 ## Version
 
-1.2
+1.3

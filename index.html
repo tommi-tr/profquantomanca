@@ -55,6 +55,13 @@ svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:ro
 #kov{position:fixed;top:0;left:0;right:0;bottom:0;z-index:9;display:none}
 #kp{position:fixed;z-index:10;display:none;width:22em;padding:1.5em;box-sizing:border-box;background:rgba(16,18,28,.96);border:.1em solid rgba(255,255,255,.3);border-radius:1.6em}
 #kp .lab{font-size:1.7em}
+.corner{position:absolute;right:3em;bottom:3em;z-index:2;display:-webkit-box;display:-webkit-flex;display:flex}
+.ib{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center;width:3.8em;height:3.8em;margin-left:1em;border-radius:1em;background:rgba(255,255,255,.12);border:.1em solid rgba(255,255,255,.4);color:#fff;box-sizing:border-box;text-decoration:none}
+.ib svg{width:1.8em;height:1.8em}
+.ib:active,.ib.act{background:rgba(255,255,255,.34)}
+#lp{position:fixed;z-index:10;display:none;padding:.8em;box-sizing:border-box;background:rgba(16,18,28,.97);border:.1em solid rgba(255,255,255,.3);border-radius:1.2em}
+#lp button{display:block;width:100%;text-align:left;font-size:1.8em;padding:.45em 1em;border-radius:.5em;color:#fff;white-space:nowrap}
+#lp button.on{background:rgba(255,255,255,.25)}
 #toast{position:fixed;z-index:11;display:none;right:3em;bottom:3em;max-width:40em;padding:1em 1.4em;font-size:1.7em;line-height:1.3;background:rgba(16,18,28,.96);border:.06em solid rgba(255,255,255,.35);border-radius:.8em;color:#fff}
 #mp{position:fixed;z-index:10;display:none;width:42em;padding:1.8em;box-sizing:border-box;background:rgba(16,18,28,.97);border:.1em solid rgba(255,255,255,.3);border-radius:1.6em}
 .mpt{font-size:2em;color:#fff;margin-bottom:.7em;line-height:1.2}
@@ -77,50 +84,55 @@ svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:ro
   <div id="bg"></div>
   <div class="main" id="main">
     <div class="side l" id="sideL">
-      <button class="sb" id="bPlay"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg><span>Play</span></button>
-      <button class="sb" id="bPause"><svg viewBox="0 0 24 24"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg><span>Pausa</span></button>
-      <button class="sb" id="bReset"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.4 5.7"/><path d="M20 4v7h-7"/></svg><span>Reset</span></button>
+      <button class="sb" id="bPlay"><svg viewBox="0 0 24 24"><path d="M7 4v16l13-8z"/></svg><span data-i="play">Play</span></button>
+      <button class="sb" id="bPause"><svg viewBox="0 0 24 24"><path d="M7 5h3v14H7zM14 5h3v14h-3z"/></svg><span data-i="pause">Pausa</span></button>
+      <button class="sb" id="bReset"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.4 5.7"/><path d="M20 4v7h-7"/></svg><span data-i="reset">Reset</span></button>
     </div>
     <div class="side r" id="sideR">
-      <button class="sb" id="bNotes"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg><span>Note</span></button>
-      <button class="sb" id="bFull"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg><span id="lFull">Schermo</span></button>
-      <button class="sb" id="bMsg"><svg viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4 2.5 4H5"/></svg><span>Fine</span></button>
+      <button class="sb" id="bNotes"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg><span data-i="notes">Note</span></button>
+      <button class="sb" id="bFull"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg><span id="lFull">Schermo intero</span></button>
+      <button class="sb" id="bMsg"><svg viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4 2.5 4H5"/></svg><span data-i="endBtn">Fine</span></button>
+    </div>
+    <div class="corner">
+      <a class="ib" id="bDl" href="https://github.com/tommi-tr/profquantomanca/blob/main/dist/profquantomanca_v1.3.html" target="_blank" rel="noopener" data-it="download" title="Scarica"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
+      <button class="ib" id="bLang" data-it="lang" title="Lingua"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg></button>
     </div>
     <div class="stack" id="stack">
-      <div class="tm"><span class="lab">Inizio</span><span class="num big tap" id="vStart" style="color:#a8cfff">--:--</span><span class="hint" id="hStart">si blocca premendo play</span></div>
-      <div class="pill"><span class="lab">Ora attuale</span><span class="num" id="vNow">--:--</span></div>
+      <div class="tm"><span class="lab" data-i="start">Inizio</span><span class="num big tap" id="vStart" style="color:#a8cfff">--:--</span><span class="hint" id="hStart" data-i="hint">si blocca premendo play</span></div>
+      <div class="pill"><span class="lab" data-i="now">Ora attuale</span><span class="num" id="vNow">--:--</span></div>
       <div class="tm">
         <span class="lab" id="lRem">Tempo rimanente</span>
         <span class="num rem tap" id="vRem">--:--</span>
         <div class="bar"><div id="bar"></div></div>
       </div>
-      <div class="pill"><span class="lab">Durata</span><span class="num tap" id="vDur">--</span></div>
-      <div class="tm"><span class="lab">Fine</span><span class="num big tap" id="vEnd" style="color:#d6c6ff">--:--</span></div>
+      <div class="pill"><span class="lab" data-i="dur">Durata</span><span class="num tap" id="vDur">--</span></div>
+      <div class="tm"><span class="lab" data-i="end">Fine</span><span class="num big tap" id="vEnd" style="color:#d6c6ff">--:--</span></div>
     </div>
   </div>
   <div class="notes" id="notes"><div class="nin">
     <div class="ntb">
-      <button class="tb on" id="tPen" title="Penna"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button>
-      <button class="tb" id="tTxt" title="Tastiera"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg></button>
-      <button class="tb" id="tEr" title="Gomma"><svg viewBox="0 0 24 24"><path d="M19 20H8.5l-4.2-4.3a1 1 0 0 1 0-1.4l10-10a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4L12 20"/><path d="M17.5 13.5l-7-7"/></svg></button>
+      <button class="tb on" id="tPen" title="Penna" data-it="pen"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button>
+      <button class="tb" id="tTxt" title="Tastiera" data-it="kbd"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg></button>
+      <button class="tb" id="tEr" title="Gomma" data-it="eraser"><svg viewBox="0 0 24 24"><path d="M19 20H8.5l-4.2-4.3a1 1 0 0 1 0-1.4l10-10a1 1 0 0 1 1.4 0l5 5a1 1 0 0 1 0 1.4L12 20"/><path d="M17.5 13.5l-7-7"/></svg></button>
       <span style="width:.6em"></span>
-      <button class="dot on" data-c="#ffffff" style="background:#fff" title="Bianco"></button>
-      <button class="dot" data-c="#ffd86b" style="background:#ffd86b" title="Giallo"></button>
-      <button class="dot" data-c="#8fd0ff" style="background:#8fd0ff" title="Azzurro"></button>
+      <button class="dot on" data-c="#ffffff" style="background:#fff" title="Bianco" data-it="white"></button>
+      <button class="dot" data-c="#ffd86b" style="background:#ffd86b" title="Giallo" data-it="yellow"></button>
+      <button class="dot" data-c="#8fd0ff" style="background:#8fd0ff" title="Azzurro" data-it="blue"></button>
       <span class="sp"></span>
-      <button class="tb" id="tClr" title="Cancella tutto"><svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button>
-      <button class="tb" id="tCls" title="Chiudi note"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <button class="tb" id="tClr" title="Cancella tutto" data-it="clear"><svg viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4h6v3"/></svg></button>
+      <button class="tb" id="tCls" title="Chiudi note" data-it="closeNotes"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     </div>
-    <div class="nar" id="nar"><canvas id="cv"></canvas><textarea id="ta" placeholder="Scrivi qui"></textarea></div>
+    <div class="nar" id="nar"><canvas id="cv"></canvas><textarea id="ta" placeholder="Scrivi qui" data-ip="write"></textarea></div>
   </div></div>
 </div>
 <div id="kov"></div>
 <div id="toast"></div>
+<div id="lp"></div>
 <div id="mp">
-  <div class="mpt">Messaggio da visualizzare alla fine:</div>
+  <div class="mpt" data-i="msgTitle">Messaggio da visualizzare alla fine:</div>
   <textarea id="mta" maxlength="120" rows="3" placeholder="Consegnare"></textarea>
-  <div class="mph">Compare al posto del tempo quando il timer arriva a zero. Puoi andare a capo. Massimo 120 caratteri.</div>
-  <div class="krow"><button class="k wide" id="mDef"><span>Predefinito</span></button><button class="k wide" id="mNo"><span>Annulla</span></button><button class="k ok wide" id="mOk"><span>Salva</span></button></div>
+  <div class="mph" data-i="msgHelp">Compare al posto del tempo quando il timer arriva a zero. Puoi andare a capo. Massimo 120 caratteri.</div>
+  <div class="krow"><button class="k wide" id="mDef"><span data-i="deflt">Predefinito</span></button><button class="k wide" id="mNo"><span data-i="cancel">Annulla</span></button><button class="k ok wide" id="mOk"><span data-i="save">Salva</span></button></div>
 </div>
 <div id="kp">
   <div class="lab" id="kT">Fine</div>
@@ -128,12 +140,24 @@ svg{display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:ro
   <div class="ke" id="kE"></div>
   <div class="krow" id="kQ"><button class="k q" data-q="-5"><span>&minus;5</span></button><button class="k q" data-q="-1"><span>&minus;1</span></button><button class="k q" data-q="1"><span>+1</span></button><button class="k q" data-q="5"><span>+5</span></button></div>
   <div id="kG"></div>
-  <div class="krow"><button class="k wide" id="kNo"><span>Annulla</span></button><button class="k ok wide" id="kOk"><span>OK</span></button></div>
+  <div class="krow"><button class="k wide" id="kNo"><span data-i="cancel">Annulla</span></button><button class="k ok wide" id="kOk"><span>OK</span></button></div>
 </div>
 <script>
 (function(){
 var $=function(i){return document.getElementById(i)};
-var M=60000,H=3600000,em=10,KEY='timerLavagna.v1',DEFMSG='Consegnare';
+var M=60000,H=3600000,em=10,KEY='timerLavagna.v1';
+var LANGS=[['it','Italiano'],['en','English'],['fr','Français'],['es','Español'],['de','Deutsch'],['fano','Fanese']];
+var I={
+it:{play:'Play',pause:'Pausa',reset:'Reset',notes:'Note',full:'Schermo intero',exit:'Esci',endBtn:'Fine',start:'Inizio',now:'Ora attuale',rem:'Tempo rimanente',dur:'Durata',end:'Fine',hint:'si blocca premendo play',paused:'In pausa',startsAt:'Inizia alle ',timeUp:'Tempo scaduto',defMsg:'Consegnare',kStart:'Inizio',kEnd:'Fine',kDur:'Durata (minuti)',kRem:'Rimanente (minuti)',cancel:'Annulla',save:'Salva',deflt:'Predefinito',msgTitle:'Messaggio da visualizzare alla fine:',msgHelp:'Compare al posto del tempo quando il timer arriva a zero. Puoi andare a capo. Massimo 120 caratteri.',write:'Scrivi qui',errFmt:'Es. 1100 = 11:00',errBad:'Orario non valido',errMin:'Almeno 1 minuto',errAfter:"Dev'essere dopo l'inizio",errBefore:"Dev'essere prima della fine",fsMsg:'Schermo intero non disponibile qui: usa il menu del browser o il tasto F11',pen:'Penna',kbd:'Tastiera',eraser:'Gomma',white:'Bianco',yellow:'Giallo',blue:'Azzurro',clear:'Cancella tutto',closeNotes:'Chiudi note',download:'Scarica il file',lang:'Lingua'},
+en:{play:'Play',pause:'Pause',reset:'Reset',notes:'Notes',full:'Full screen',exit:'Exit',endBtn:'End',start:'Start',now:'Current time',rem:'Time remaining',dur:'Duration',end:'End',hint:'locks when you press play',paused:'Paused',startsAt:'Starts at ',timeUp:"Time's up",defMsg:'Hand in your work',kStart:'Start',kEnd:'End',kDur:'Duration (minutes)',kRem:'Remaining (minutes)',cancel:'Cancel',save:'Save',deflt:'Default',msgTitle:'Message to show at the end:',msgHelp:'Shown instead of the time when the timer reaches zero. You can add line breaks. Up to 120 characters.',write:'Write here',errFmt:'E.g. 1100 = 11:00',errBad:'Invalid time',errMin:'At least 1 minute',errAfter:'Must be after the start',errBefore:'Must be before the end',fsMsg:"Full screen isn't available here: use the browser menu or F11",pen:'Pen',kbd:'Keyboard',eraser:'Eraser',white:'White',yellow:'Yellow',blue:'Light blue',clear:'Clear all',closeNotes:'Close notes',download:'Download the file',lang:'Language'},
+fr:{play:'Démarrer',pause:'Pause',reset:'Réinitialiser',notes:'Notes',full:'Plein écran',exit:'Quitter',endBtn:'Fin',start:'Début',now:'Heure actuelle',rem:'Temps restant',dur:'Durée',end:'Fin',hint:'se fige quand on appuie sur démarrer',paused:'En pause',startsAt:'Commence à ',timeUp:'Temps écoulé',defMsg:'Rendez vos copies',kStart:'Début',kEnd:'Fin',kDur:'Durée (minutes)',kRem:'Restant (minutes)',cancel:'Annuler',save:'Enregistrer',deflt:'Par défaut',msgTitle:'Message à afficher à la fin :',msgHelp:"S'affiche à la place du temps quand le minuteur arrive à zéro. Vous pouvez aller à la ligne. 120 caractères maximum.",write:'Écrivez ici',errFmt:'Ex. 1100 = 11:00',errBad:'Heure non valide',errMin:'Au moins 1 minute',errAfter:'Doit être après le début',errBefore:'Doit être avant la fin',fsMsg:"Plein écran indisponible ici : utilisez le menu du navigateur ou F11",pen:'Stylo',kbd:'Clavier',eraser:'Gomme',white:'Blanc',yellow:'Jaune',blue:'Bleu clair',clear:'Tout effacer',closeNotes:'Fermer les notes',download:'Télécharger le fichier',lang:'Langue'},
+es:{play:'Iniciar',pause:'Pausa',reset:'Reiniciar',notes:'Notas',full:'Pantalla completa',exit:'Salir',endBtn:'Fin',start:'Inicio',now:'Hora actual',rem:'Tiempo restante',dur:'Duración',end:'Fin',hint:'se fija al pulsar iniciar',paused:'En pausa',startsAt:'Empieza a las ',timeUp:'Tiempo agotado',defMsg:'Entregad el trabajo',kStart:'Inicio',kEnd:'Fin',kDur:'Duración (minutos)',kRem:'Restante (minutos)',cancel:'Cancelar',save:'Guardar',deflt:'Predeterminado',msgTitle:'Mensaje que se mostrará al final:',msgHelp:'Aparece en lugar del tiempo cuando el temporizador llega a cero. Puedes saltar de línea. Máximo 120 caracteres.',write:'Escribe aquí',errFmt:'Ej. 1100 = 11:00',errBad:'Hora no válida',errMin:'Al menos 1 minuto',errAfter:'Debe ser después del inicio',errBefore:'Debe ser antes del fin',fsMsg:'Pantalla completa no disponible aquí: usa el menú del navegador o F11',pen:'Lápiz',kbd:'Teclado',eraser:'Goma',white:'Blanco',yellow:'Amarillo',blue:'Celeste',clear:'Borrar todo',closeNotes:'Cerrar notas',download:'Descargar el archivo',lang:'Idioma'},
+de:{play:'Start',pause:'Pause',reset:'Zurücksetzen',notes:'Notizen',full:'Vollbild',exit:'Beenden',endBtn:'Ende',start:'Beginn',now:'Aktuelle Uhrzeit',rem:'Verbleibende Zeit',dur:'Dauer',end:'Ende',hint:'wird mit Start festgelegt',paused:'Pausiert',startsAt:'Beginnt um ',timeUp:'Zeit abgelaufen',defMsg:'Bitte abgeben',kStart:'Beginn',kEnd:'Ende',kDur:'Dauer (Minuten)',kRem:'Verbleibend (Minuten)',cancel:'Abbrechen',save:'Speichern',deflt:'Standard',msgTitle:'Nachricht, die am Ende angezeigt wird:',msgHelp:'Erscheint statt der Zeit, wenn der Timer null erreicht. Zeilenumbrüche sind möglich. Höchstens 120 Zeichen.',write:'Hier schreiben',errFmt:'Z. B. 1100 = 11:00',errBad:'Ungültige Uhrzeit',errMin:'Mindestens 1 Minute',errAfter:'Muss nach dem Beginn liegen',errBefore:'Muss vor dem Ende liegen',fsMsg:'Vollbild hier nicht verfügbar: Browsermenü oder F11 verwenden',pen:'Stift',kbd:'Tastatur',eraser:'Radierer',white:'Weiß',yellow:'Gelb',blue:'Hellblau',clear:'Alles löschen',closeNotes:'Notizen schließen',download:'Datei herunterladen',lang:'Sprache'},
+fano:{play:'Parti',pause:"'Speta",reset:'Arparti',notes:'Apunt',full:'Scherm gros',exit:'Scherm ninin',endBtn:'Fin',start:'Inisi',now:'Che or è?',rem:'Quant manca',dur:'Quant dura',end:'Fin',hint:'se pigi "gim" sta bon'}
+};
+var lang='it';
+function tr(k){var d=I[lang];return(d&&d[k]!=null)?d[k]:I.it[k]}
+function defMsg(){return tr('defMsg')}
 function store(k,v){try{if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){}}
 function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
 function scale(){var ae=document.activeElement;if(ae&&ae.tagName=='TEXTAREA'&&em>3)return;em=Math.min(window.innerHeight/100,window.innerWidth/177.8);if(em<3)em=3;document.body.style.fontSize=em+'px'}
@@ -143,6 +167,7 @@ function now(){return Date.now()}
 var S={st:false,pa:false,sFix:false,start:0,end:0,dur:50*M,dur0:50*M,anc:'dur',rem:0};
 var saved=null;try{saved=JSON.parse(load(KEY)||'null')}catch(e){}
 var msg=(saved&&typeof saved.msg=='string')?saved.msg:'';
+if(saved&&saved.lang&&I[saved.lang])lang=saved.lang;
 if(saved&&saved.S){for(var k in S)if(saved.S.hasOwnProperty(k))S[k]=saved.S[k];
   if(S.st&&now()-S.end>12*H)reset(true)}
 
@@ -169,18 +194,18 @@ function render(){var t=now(),r=calc(t);
   txt('vNow',hm(t));txt('vStart',hm(r.start));txt('vEnd',hm(r.end));txt('vDur',fd(r.dur));
   $('hStart').style.visibility=(!S.st&&!S.sFix)?'visible':'hidden';
   var v=$('vRem'),b=$('bar');
-  if(r.fin){var mg=msg||DEFMSG,L=mg.length+20*(mg.split('\n').length-1),fs=L<=12?9:L<=24?6.5:L<=48?5:4;
+  if(r.fin){var mg=msg||defMsg(),L=mg.length+20*(mg.split('\n').length-1),fs=L<=12?9:L<=24?6.5:L<=48?5:4;
     txt('vRem',mg);v.style.fontSize=fs+'em';v.style.whiteSpace='pre-wrap';v.style.lineHeight='1.15';v.style.maxWidth=Math.round($('stack').clientWidth*0.96)+'px';
-    v.style.color='#fff';b.style.backgroundColor='#fff';txt('lRem','Tempo scaduto');b.style.width='0%'}
+    v.style.color='#fff';b.style.backgroundColor='#fff';txt('lRem',tr('timeUp'));b.style.width='0%'}
   else{var s=fr(r.rem);txt('vRem',s);v.style.fontSize=(s.length>5?'11em':'14em');v.style.whiteSpace='nowrap';v.style.lineHeight='';v.style.maxWidth='';
     var w=S.st&&!r.wait&&r.rem<=5*M,c=w?'#ffc061':'#fff';v.style.color=c;b.style.backgroundColor=c;
-    txt('lRem',S.pa?'In pausa':(r.wait?'Inizia alle '+hm(r.start):'Tempo rimanente'));
+    txt('lRem',S.pa?tr('paused'):(r.wait?tr('startsAt')+hm(r.start):tr('rem')));
     var p=S.st&&!r.wait&&r.dur>0?Math.max(0,Math.min(1,r.rem/r.dur)):1;b.style.width=(Math.round(p*1000)/10)+'%'}
   v.style.opacity=S.pa?'.55':'1';
   cls('bPlay','sb'+(S.st&&!S.pa&&!r.fin?' act':''));
   cls('bPause','sb'+(S.pa?' act':''));
   cls('bNotes','sb'+(nO?' act':''));}
-function saveS(){store(KEY,JSON.stringify({S:S,n:nO,col:col,msg:msg}));}
+function saveS(){store(KEY,JSON.stringify({S:S,n:nO,col:col,msg:msg,lang:lang}));}
 
 function reset(silent){S.st=false;S.pa=false;S.sFix=false;S.anc='dur';S.dur=S.dur0;if(!silent){saveS();render()}}
 $('bPlay').onclick=function(){var t=now(),r=calc(t);if(r.fin)return;
@@ -192,9 +217,9 @@ $('bReset').onclick=function(){reset(false)};
 
 function apply(f,val){var t=now(),r=calc(t);
   if(f=='start'){
-    if(!S.st){if(S.anc=='end'&&S.end<=val)return"Dev'essere prima della fine";S.sFix=true;S.start=val}
+    if(!S.st){if(S.anc=='end'&&S.end<=val)return tr('errBefore');S.sFix=true;S.start=val}
     else{var d=r.dur;S.start=val;if(S.pa)S.rem=val+d-t;else S.end=val+d}}
-  else if(f=='end'){if(val<=r.start)return"Dev'essere dopo l'inizio";
+  else if(f=='end'){if(val<=r.start)return tr('errAfter');
     if(!S.st){S.anc='end';S.end=val}else if(S.pa)S.rem=val-t;else S.end=val}
   else if(f=='dur'){if(!S.st){S.anc='dur';S.dur=S.dur0=val}else if(S.pa)S.rem=r.start+val-t;else S.end=r.start+val}
   else if(f=='rem'){if(!S.st){S.anc='dur';S.dur=S.dur0=val}else if(S.pa)S.rem=val;else S.end=r.wait?r.start+val:t+val}
@@ -203,14 +228,14 @@ function near(h,m,ref){var d=new Date(ref);d.setHours(h,m,0,0);var v=d.getTime()
 
 /* tastierino */
 var kf,km,kb,kfr,kph;
-var T={start:'Inizio',end:'Fine',dur:'Durata (minuti)',rem:'Rimanente (minuti)'};
-var kp=$('kp'),kov=$('kov'),mp=$('mp');
+var T={start:'kStart',end:'kEnd',dur:'kDur',rem:'kRem'};
+var kp=$('kp'),kov=$('kov'),mp=$('mp'),lp=null;
 function kE(m){$('kE').textContent=m}
 function kd(){var d=$('kD');d.style.opacity='1';
   if(km=='time'){if(!kb){d.textContent=kph;d.style.opacity='.4';return}var s=('----'+kb).slice(-4);s=s.slice(0,2)+':'+s.slice(2);d.textContent=s.replace(/^-+/,'')}
   else d.textContent=(kb||'0')+' min'}
 function kopen(f,el){var r=calc(now());kf=f;km=(f=='start'||f=='end')?'time':'min';kE('');
-  $('kT').textContent=T[f];
+  $('kT').textContent=tr(T[f]);
   if(km=='time'){kb='';kph=hm(r[f])}else{kb=String(Math.max(1,Math.round((f=='dur'?r.dur:r.rem)/M)));kfr=true}
   $('kQ').style.display=km=='min'?'':'none';kd();
   kp.style.display='block';kov.style.display='block';
@@ -218,7 +243,7 @@ function kopen(f,el){var r=calc(now());kf=f;km=(f=='start'||f=='end')?'time':'mi
   var x=er.right+g;if(x+kw>W-g)x=er.left-kw-g;if(x<g)x=g;
   var y=er.top+er.height/2-kh/2;y=Math.max(g,Math.min(Hh-kh-g,y));
   kp.style.left=x+'px';kp.style.top=y+'px'}
-function kclose(){kp.style.display='none';if(!mp||mp.style.display!='block')kov.style.display='none'}
+function kclose(){kp.style.display='none';if((!mp||mp.style.display!='block')&&(!lp||lp.style.display!='block'))kov.style.display='none'}
 (function(){var rows=[['1','2','3'],['4','5','6'],['7','8','9'],['C','0','⌫']],g=$('kG');
   for(var i=0;i<rows.length;i++){var row=document.createElement('div');row.className='krow';
     for(var j=0;j<3;j++){(function(k){var b=document.createElement('button');b.className='k';b.innerHTML='<span>'+k+'</span>';
@@ -228,24 +253,22 @@ function kclose(){kp.style.display='none';if(!mp||mp.style.display!='block')kov.
   var q=$('kQ').getElementsByTagName('button');
   for(var n=0;n<q.length;n++)(function(b){b.onclick=function(){var v=Math.max(1,(parseInt(kb,10)||0)+parseInt(b.getAttribute('data-q'),10));kb=String(Math.min(600,v));kfr=true;kE('');kd()}})(q[n]);
 })();
-$('kNo').onclick=kclose;kov.onclick=function(){kclose();mclose()};
+$('kNo').onclick=kclose;kov.onclick=function(){kclose();mclose();lclose()};
 /* messaggio di fine */
 var mta=$('mta');
-function mopen(){kclose();mta.value=msg||DEFMSG;mp.style.display='block';kov.style.display='block';
-  var br=$('bMsg').getBoundingClientRect(),W=window.innerWidth,g=2*em,w=mp.offsetWidth;
-  var x=br.left-w-g;if(x<g)x=Math.max(g,W-w-g);
-  mp.style.left=x+'px';mp.style.top=Math.round(4*em)+'px';
+function mopen(){kclose();mta.value=msg||defMsg();mp.style.display='block';kov.style.display='block';
+  mp.style.left=Math.max(0,Math.round((window.innerWidth-mp.offsetWidth)/2))+'px';mp.style.top=Math.max(0,Math.round((window.innerHeight-mp.offsetHeight)/2))+'px';
   try{mta.focus();mta.setSelectionRange(mta.value.length,mta.value.length)}catch(e){}}
 function mclose(){mp.style.display='none';kov.style.display='none';try{mta.blur()}catch(e){}}
 $('bMsg').onclick=function(){if(mp.style.display=='block')mclose();else mopen()};
 $('mNo').onclick=mclose;
-$('mDef').onclick=function(){mta.value=DEFMSG;try{mta.focus()}catch(e){}};
-$('mOk').onclick=function(){var v=mta.value.replace(/\r/g,'').replace(/^\s+|\s+$/g,'').replace(/\n{3,}/g,'\n\n');msg=(v&&v!==DEFMSG)?v:'';saveS();mclose();render()};
+$('mDef').onclick=function(){mta.value=defMsg();try{mta.focus()}catch(e){}};
+$('mOk').onclick=function(){var v=mta.value.replace(/\r/g,'').replace(/^\s+|\s+$/g,'').replace(/\n{3,}/g,'\n\n');msg=(v&&v!==defMsg())?v:'';saveS();mclose();render()};
 $('kOk').onclick=function(){var val,t=now();
-  if(km=='time'){if(kb.length<3){kE('Es. 1100 = 11:00');return}var n=parseInt(kb,10),h=Math.floor(n/100),m=n%100;
-    if(h>23||m>59){kE('Orario non valido');return}
+  if(km=='time'){if(kb.length<3){kE(tr('errFmt'));return}var n=parseInt(kb,10),h=Math.floor(n/100),m=n%100;
+    if(h>23||m>59){kE(tr('errBad'));return}
     val=near(h,m,kf=='end'?calc(t).start:t)}
-  else{var v=parseInt(kb,10);if(!v){kE('Almeno 1 minuto');return}val=v*M}
+  else{var v=parseInt(kb,10);if(!v){kE(tr('errMin'));return}val=v*M}
   var e=apply(kf,val);if(e)kE(e);else kclose()};
 $('vStart').onclick=function(){kopen('start',this)};$('vEnd').onclick=function(){kopen('end',this)};
 $('vDur').onclick=function(){kopen('dur',this)};$('vRem').onclick=function(){kopen('rem',this)};
@@ -295,9 +318,9 @@ function isFs(){return !!(document.fullscreenElement||document.webkitFullscreenE
 function exFs(){var f=document.exitFullscreen||document.webkitExitFullscreen||document.mozCancelFullScreen||document.msExitFullscreen;if(f)f.call(document)}
 var fsOk=!!rq&&document.fullscreenEnabled!==false&&document.webkitFullscreenEnabled!==false;
 var tT=null;function toast(m){var t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(tT);tT=setTimeout(function(){t.style.display='none'},4500)}
-function fsLab(){$('lFull').textContent=isFs()?'Esci':'Schermo intero'}
-var FSMSG='Schermo intero non disponibile qui: usa il menu del browser o il tasto F11';
-$('bFull').onclick=function(){if(!fsOk){toast(FSMSG);return}try{if(isFs())exFs();else{var p=rq.call(de);if(p&&p['catch'])p['catch'](function(){toast(FSMSG)})}}catch(e){toast(FSMSG)}};
+function fsLab(){$('lFull').textContent=isFs()?tr('exit'):tr('full');sideW()}
+
+$('bFull').onclick=function(){if(!fsOk){toast(tr('fsMsg'));return}try{if(isFs())exFs();else{var p=rq.call(de);if(p&&p['catch'])p['catch'](function(){toast(tr('fsMsg'))})}}catch(e){toast(tr('fsMsg'))}};
 document.addEventListener('fullscreenchange',fsLab);document.addEventListener('webkitfullscreenchange',fsLab);fsLab();
 
 /* schermo sempre acceso, se il browser lo consente */
@@ -308,9 +331,21 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden&&S.s
 function sideW(){var ids=['sideL','sideR'];for(var i=0;i<ids.length;i++){var s=$(ids[i]);s.style.width='';}
   var w=Math.max($('sideL').offsetWidth,$('sideR').offsetWidth);$('sideL').style.width=w+'px';$('sideR').style.width=w+'px'}
 
-window.addEventListener('resize',function(){scale();sideW();if(nO)fit();kclose();render()});
+function applyLang(){var i,e,a=document.querySelectorAll('[data-i]');for(i=0;i<a.length;i++){e=a[i];e.textContent=tr(e.getAttribute('data-i'))}
+  a=document.querySelectorAll('[data-it]');for(i=0;i<a.length;i++){e=a[i];e.title=tr(e.getAttribute('data-it'));e.setAttribute('aria-label',e.title)}
+  a=document.querySelectorAll('[data-ip]');for(i=0;i<a.length;i++){e=a[i];e.placeholder=tr(e.getAttribute('data-ip'))}
+  mta.placeholder=defMsg();document.documentElement.lang=lang=='fano'?'it':lang;fsLab();render()}
+lp=$('lp');
+(function(){for(var i=0;i<LANGS.length;i++)(function(c){var b=document.createElement('button');b.textContent=c[1];b.setAttribute('data-l',c[0]);
+  b.onclick=function(){lang=c[0];saveS();lclose();applyLang()};lp.appendChild(b)})(LANGS[i])})();
+function lopen(){kclose();mclose();var bs=lp.getElementsByTagName('button');for(var i=0;i<bs.length;i++)bs[i].className=bs[i].getAttribute('data-l')==lang?'on':'';
+  lp.style.display='block';kov.style.display='block';var br=$('bLang').getBoundingClientRect();
+  lp.style.left=Math.max(0,Math.round(br.right-lp.offsetWidth))+'px';lp.style.top=Math.max(0,Math.round(br.top-lp.offsetHeight-em))+'px';$('bLang').className='ib act'}
+function lclose(){lp.style.display='none';kov.style.display='none';$('bLang').className='ib'}
+$('bLang').onclick=function(){if(lp.style.display=='block')lclose();else lopen()};
+window.addEventListener('resize',function(){scale();sideW();if(nO)fit();kclose();lclose();render()});
 if(saved){if(saved.col)setCol(saved.col);if(saved.n)tog(true)}
-sideW();bgu();render();
+applyLang();sideW();bgu();render();
 setInterval(render,250);setInterval(bgu,2000);
 if(S.st)wake();
 })();
