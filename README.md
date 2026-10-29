@@ -18,7 +18,7 @@ The interface is in Italian.
 
 ## Download
 
-The download button (bottom right) links to the versioned copy in `dist/`, e.g. `dist/profquantomanca_v1.7.html`, which is identical to `index.html`.
+The download button (bottom right) links to the versioned copy in `dist/`, e.g. `dist/profquantomanca_v1.8.html`, which is identical to `index.html`.
 
 ## Deployment
 
@@ -26,4 +26,4 @@ Hosted on Vercel as a static site (Framework preset: Other, no build command). E
 
 ## Version
 
-1.7
+1.8
